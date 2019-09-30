@@ -8,7 +8,7 @@ namespace reaktionsspelet
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Välkommen till Reaktionsspelet!");
+            System.Console.WriteLine("Welcome to the reaction-speed game!");
             long lastTime = -1;
             
             do {                
@@ -17,17 +17,17 @@ namespace reaktionsspelet
                     Console.WriteLine("CHEATER!");
                 }
                 else {
-                    string comment = (lastTime > 1000) ? "Lite långsamt!" : "Bra jobbat!";
-                    Console.WriteLine("Din tid var {0} millisekunder. {1}", lastTime, comment);
+                    string comment = (lastTime > 1000) ? "A bit slow!" : "Well done!";
+                    Console.WriteLine("Your time was {0} milliseconds. {1}", lastTime, comment);
                 }
-                Console.Write("Vill du köra igen? Y/N: ");
+                Console.Write("Play again? Y/N: ");
             } while (Console.ReadLine().ToUpper() != "N");
         }
 
         static long Game() {
             Stopwatch s = new Stopwatch();
             Stopwatch antiCheat = new Stopwatch();
-            Console.WriteLine("När du ser texten [NU!], klicka så snabbt du kan på mellanslag.");
+            Console.WriteLine("When you see [NOW], press a key as fast as you can!");
             antiCheat.Start();
             int timer = new Random().Next(3, 11) * 1000;
             do {
@@ -38,7 +38,7 @@ namespace reaktionsspelet
             } while (antiCheat.ElapsedMilliseconds < timer);
             // Thread.Sleep(new Random().Next(3, 11) * 1000);
             antiCheat.Stop();
-            Console.WriteLine("NU!");
+            Console.WriteLine("NOW!");
             s.Start();
             Console.ReadKey();
             s.Stop();
